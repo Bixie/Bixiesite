@@ -1,12 +1,19 @@
 # Warp Theme Framework #
 
-- Version: 7.3.2
-- Date: December 2014
+- Version: 7.3.3
+- Date: February 2015
 - Author: YOOtheme GmbH
 - Website: <http://www.yootheme.com/warp>
 
 
 ## Changelog
+
+    7.3.3
+    # Fixed .uk-link-reset in bootstrap-fix.less (J)
+    # Fixed pagination (J34)
+    + Added icon replacement for RTL mode
+    ^ Updated UIkit to 2.17.0
+    ^ Updated language files (J)
 
     7.3.2
     + Added child theme support (WP)

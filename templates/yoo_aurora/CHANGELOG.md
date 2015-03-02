@@ -1,5 +1,12 @@
 # Changelog
 
+    1.0.4
+    ^ Updated UIkit theme according to UIkit 2.17.0
+
+    1.0.3
+    # -> Fixed content-top and content-bottom padding when padding is removed on smartphones
+    ^ Updated UIkit theme according to UIkit 2.16.0
+
     1.0.2
     ^ -> Added theme-sidebar-background variable to customizer.json, theme.less and blue/yellow styles
     # -> Fixed php query for footer/to-top-scroller in theme.php on line 58

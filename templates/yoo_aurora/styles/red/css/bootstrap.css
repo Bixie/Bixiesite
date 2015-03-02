@@ -7526,11 +7526,13 @@ input.search-query {
 /* Navs overrides
  ========================================================================== */
 .nav > li > a {
-  color: #e36f57;
+  color: #666666;
+  font-size: 12.9px;
+  text-transform: uppercase;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
-  color: #dc4a2b;
+  color: #e36f57;
 }
 .nav-header {
   text-shadow: none;
@@ -8015,6 +8017,13 @@ iframe {
 .uk-form input[type="radio"],
 .uk-form input[type="checkbox"] {
   vertical-align: baseline;
+}
+/*
+ * Utility
+ */
+.uk-link-reset:focus,
+.uk-link-reset a:focus {
+  text-decoration: none;
 }
 /*
  * Search

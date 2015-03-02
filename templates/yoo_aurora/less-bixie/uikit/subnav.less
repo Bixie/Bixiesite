@@ -9,11 +9,9 @@
 // Variables
 // ========================================================================
 
-@subnav-font-size:                              (@global-font-size * 0.86); // 13px
-
-@subnav-color:                                  @global-link-color;
-@subnav-hover-color:                            @global-link-hover-color;
-@subnav-disabled-color:                         @global-muted-color;
+@subnav-color:                                  @global-color;
+@subnav-hover-color:                            @global-link-color;
+@subnav-active-color:                           @global-link-color;
 
 @subnav-line-border:                            @global-border;
 
@@ -23,11 +21,13 @@
 @subnav-pill-active-background:                 @subnav-pill-hover-background;
 @subnav-pill-active-color:                      @global-contrast-color;
 
+@subnav-disabled-color:                         @global-muted-color;
 
 //
 // New
 //
 
+@subnav-font-size:                              (@global-font-size * 0.86); // 13px
 @subnav-text-transform:                         uppercase;
 
 @subnav-pill-padding-horizontal:                12px;
@@ -36,7 +36,6 @@
 @subnav-pill-border-radius:                     @global-border-radius;
 @subnav-pill-line-height:                       @global-height;
 @subnav-pill-color:                             @global-primary-background;
-@subnav-pill-disabled-color:                    @subnav-disabled-color;
 
 @subnav-pill-active-shadow:                     desaturate(darken(@global-primary-background, 15%), 15%);
 
@@ -48,18 +47,16 @@
 // Items
 //
 
-.hook-subnav-item() { text-transform: @subnav-text-transform; }
+.hook-subnav() {
+    font-size: @subnav-font-size;
+    text-transform: @subnav-text-transform;
+}
 
-// Link
-.hook-subnav-link() {}
-
-.hook-subnav-link-hover() {}
+// Hover
+.hook-subnav-hover() {}
 
 // Active
 .hook-subnav-active() {}
-
-// Disabled
-.hook-subnav-disabled() {}
 
 
 // Modifier: `uk-subnav-line'
@@ -88,6 +85,12 @@
 .hook-subnav-pill-active() {}
 
 
+// Disabled state
+// ========================================================================
+
+.hook-subnav-disabled() { border: 0; }
+
+
 // Miscellaneous
 // ========================================================================
 
@@ -95,14 +98,13 @@
 
     .uk-subnav-pill {
 
+        // Onclick
         > li > a:active {
             border-color: darken(@subnav-pill-border, 10%);
             background: darken(@subnav-pill-active-background, 8%);
             box-shadow: inset 0 0 5px @button-primary-active-shadow;
             color: fade(@subnav-pill-active-color, 80%);
         }
-
-        > li > span { color: @subnav-pill-disabled-color; }
 
     }
 

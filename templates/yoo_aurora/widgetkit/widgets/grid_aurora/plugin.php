@@ -15,7 +15,7 @@ return array(
         return array(
 
             'name'  => 'grid_aurora',
-            'label' => 'Grid Aurora',
+            'label' => 'Grid +',
             'icon'  => $app['url']->to('plugins/widgets/grid_aurora/widget.svg'),
             'view'  => 'plugins/widgets/grid_aurora/views/widget.php',
             'item'  => array('title', 'content', 'media'),

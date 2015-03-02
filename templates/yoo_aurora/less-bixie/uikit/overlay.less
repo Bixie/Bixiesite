@@ -9,19 +9,25 @@
 // Variables
 // ========================================================================
 
-@overlay-area-background:                       fade(@global-highlight-background, 60%);
+@overlay-panel-color:                           @global-contrast-color;
 
-@overlay-area-icon-size:                        24px;
-@overlay-area-icon-color:                       @global-contrast-color;
-
-@overlay-caption-padding:                       @global-margin;
-@overlay-caption-background:                    fade(@global-primary-background, 60%);
-@overlay-caption-color:                         @global-contrast-color;
-
+@overlay-icon-color:                            @global-contrast-color;
 
 //
 // New
 //
+
+@overlay-button-border:                         @global-contrast-color;
+@overlay-button-background:                     fade(@global-contrast-color, 0%);
+@overlay-button-color:                          @global-contrast-color;
+
+@overlay-button-hover-border:                   fade(@global-contrast-color, 0%);;
+@overlay-button-hover-background:               @global-contrast-color;
+@overlay-button-hover-color:                    @global-color;
+
+@overlay-button-active-border:                  @overlay-button-hover-border;
+@overlay-button-active-background:              fade(@overlay-button-hover-background, 80%);
+@overlay-button-active-color:                   darken(@overlay-button-hover-color, 5%);
 
 @overlay-icon-button-border:                    fade(@global-contrast-color, 40%);
 @overlay-icon-button-background:                fade(@global-contrast-color, 0%);
@@ -35,11 +41,50 @@
 @overlay-icon-button-active-background:         @global-contrast-color;
 @overlay-icon-button-active-color:              @global-highlight-background;
 
+// DEPRECATED
+@overlay-area-background:                       fade(@global-highlight-background, 60%);
 
-// Sub-object `uk-overlay-area`
+@overlay-area-icon-size:                        24px;
+@overlay-area-icon-color:                       @global-contrast-color;
+
+@overlay-caption-padding:                       @global-margin;
+@overlay-caption-background:                    fade(@global-primary-background, 60%);
+@overlay-caption-color:                         @global-contrast-color;
+
+
+// Sub-object `uk-overlay-panel`
 // ========================================================================
 
-.hook-overlay-area() {
+.hook-overlay-panel() {}
+
+
+// Sub-object `uk-overlay-background`
+// ========================================================================
+
+.hook-overlay-background() {
+
+    // uk-button in uk-overlay-background
+    .uk-button {
+
+        border-color: @overlay-button-border;
+        background: @overlay-button-background;
+        color: @overlay-button-color;
+
+        // Hover event
+        &:hover {
+            border-color: @overlay-button-hover-border;
+            background: @overlay-button-hover-background;
+            color: @overlay-button-hover-color;
+        }
+
+        // Click event
+        &:active {
+            border-color: @overlay-button-active-border;
+            background: @overlay-button-active-background;
+            color: @overlay-button-active-color;
+        }
+
+    }
 
     // uk-icon-button in uk-overlay
     .uk-icon-button {
@@ -65,13 +110,20 @@
     }
 
 }
-.hook-overlay-area-icon() {}
 
 
-// Sub-object `uk-overlay-caption`
+// Sub-object `uk-overlay-icon`
 // ========================================================================
 
-.hook-overlay-caption() {}
+.hook-overlay-icon() {}
+
+
+// Sub-object `uk-overlay-area`
+// ==========================================================================
+
+.hook-overlay-area() {}
+
+.hook-overlay-area-icon() {}
 
 
 // Miscellaneous
