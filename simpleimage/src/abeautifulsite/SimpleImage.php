@@ -297,7 +297,7 @@ class SimpleImage {
 		$new = imagecreatetruecolor($crop_width, $crop_height);
 		imagealphablending($new, false);
 		imagesavealpha($new, true);
-		imagecopyresampled($new, $this->image, 0, 0, $x1, $y1, $crop_width, $crop_height, $crop_width, $crop_height);
+		imagecopyresampled($new, $this->image, 0, 0, $x1, 0, $crop_width, $crop_height, $crop_width, $crop_height);
 		
 		// Update meta data
 		$this->width = $crop_width;
