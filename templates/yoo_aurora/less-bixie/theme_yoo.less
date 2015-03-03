@@ -98,13 +98,14 @@
 
 html { overflow-y: scroll; }
 
-body { background: @theme-body-background; }
+body {
+  background: @theme-body-background url("../images/background/body.png") 100% 100% no-repeat;
+}
 
 // Theme Wrapper
 .tm-wrapper {
     min-height: 100vh;
     max-width: @theme-wrapper-width-max;
-
     > div {
         min-height: 100vh;
         padding-left: 0;
@@ -656,7 +657,6 @@ body { background: @theme-body-background; }
 [class*=" tm-icon-yootheme-"] {
     font-family: 'yootheme';
     speak: none;
-    font-size: 72px;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
