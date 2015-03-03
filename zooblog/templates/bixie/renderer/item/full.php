@@ -20,9 +20,8 @@ $align = ($this->checkPosition('media')) ? $view->params->get('template.item_med
 <?php if ($this->checkPosition('top')) : ?>
 	<?php echo $this->renderPosition('top', array('style' => 'uikit_block')); ?>
 <?php endif; ?>
-<?php if ($align == "above") : ?>
-	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
-<?php endif; ?>
+
+
 
 <?php if ($this->checkPosition('title')) : ?>
 <h1 class="uk-article-title">
@@ -40,43 +39,38 @@ $align = ($this->checkPosition('media')) ? $view->params->get('template.item_med
 	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
 <?php endif; ?>
 
-<?php if ($align == "left" || $align == "right") : ?>
-<div class="uk-align-medium-<?php echo $align; ?>">
-	<?php echo $this->renderPosition('media'); ?>
-</div>
-<?php endif; ?>
-
-<?php if ($this->checkPosition('content')) : ?>
-	<?php echo $this->renderPosition('content'); ?>
-<?php endif; ?>
-
 <?php if ($this->checkPosition('meta')) : ?>
-<p class="uk-article-meta">
-	<?php echo $this->renderPosition('meta'); ?>
-</p>
+	<p class="uk-text-bold">
+		<?php echo $this->renderPosition('meta'); ?>
+	</p>
 <?php endif; ?>
 
-<?php if ($align == "bottom") : ?>
-	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
-<?php endif; ?>
+<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
 
-<?php if ($this->checkPosition('taxonomy')) : ?>
-<ul class="uk-list">
-	<?php echo $this->renderPosition('taxonomy', array('style' => 'uikit_list')); ?>
-</ul>
-<?php endif; ?>
-
+<div class="uk-grid">
+    <div class="uk-width-medium-1-2">
+		<?php if ($this->checkPosition('content')) : ?>
+			<?php echo $this->renderPosition('content'); ?>
+		<?php endif; ?>
+    </div>
+    <div class="uk-width-medium-1-2">
+		<?php if ($this->checkPosition('author')) : ?>
+			<div class="uk-panel uk-panel-box">
+				<?php echo $this->renderPosition('author'); ?>
+			</div>
+		<?php endif; ?>
+		<?php if ($this->checkPosition('taxonomy')) : ?>
+			<ul class="uk-list">
+				<?php echo $this->renderPosition('taxonomy', array('style' => 'uikit_list')); ?>
+			</ul>
+		<?php endif; ?>
+	</div>
+</div>
 <?php if ($this->checkPosition('bottom')) : ?>
 	<?php echo $this->renderPosition('bottom', array('style' => 'uikit_block')); ?>
 <?php endif; ?>
 
 <?php if ($this->checkPosition('related')) : ?>
-	<h3><?php echo JText::_('Related Articles'); ?></h3>
 	<?php echo $this->renderPosition('related'); ?>
 <?php endif; ?>
 
-<?php if ($this->checkPosition('author')) : ?>
-<div class="uk-panel uk-panel-box">
-	<?php echo $this->renderPosition('author', array('style' => 'uikit_author')); ?>
-</div>
-<?php endif;
