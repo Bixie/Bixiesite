@@ -16,49 +16,39 @@ $params = $item->getParams('site');
 $align = ($this->checkPosition('media')) ? $params->get('template.teaseritem_media_alignment') : '';
 
 ?>
+<div class="uk-grid uk-grid-medium-1-2">
+	<div>
+		<?php echo $this->renderPosition('media'); ?>
+	</div>
+	<div class="uk-flex-item-1 uk-flex uk-flex-wrap uk-flex-wrap-space-between">
+		<div class="uk-width-1-1">
+			<?php if ($this->checkPosition('title')) : ?>
+				<h1 class="uk-article-title">
+					<?php echo $this->renderPosition('title'); ?>
+				</h1>
+			<?php endif; ?>
+			<?php if ($this->checkPosition('subtitle')) : ?>
+				<p class="uk-article-lead">
+					<?php echo $this->renderPosition('subtitle'); ?>
+				</p>
+			<?php endif; ?>
+			<?php if ($this->checkPosition('content')) : ?>
+				<?php echo $this->renderPosition('content'); ?>
+			<?php endif; ?>
 
-<?php if ($align == "above") : ?>
-	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
-<?php endif; ?>
+		</div>
+		<div class="uk-width-1-1">
+			<?php if ($this->checkPosition('meta')) : ?>
+				<ul class="uk-list uk-text-small">
+					<?php echo $this->renderPosition('meta', array('style' => 'uikit_list')); ?>
+				</ul>
+			<?php endif; ?>
+			<?php if ($this->checkPosition('links')) : ?>
+				<div class="uk-width-1-1 uk-text-right">
+					<?php echo $this->renderPosition('links', array('style' => 'uikit_subnav')); ?>
+				</div>
+			<?php endif; ?>
+		</div>
 
-<?php if ($this->checkPosition('title')) : ?>
-<h1 class="uk-article-title">
-	<?php echo $this->renderPosition('title'); ?>
-</h1>
-<?php endif; ?>
-
-<?php if ($this->checkPosition('subtitle')) : ?>
-<p class="uk-article-lead">
-	<?php echo $this->renderPosition('subtitle'); ?>
-</p>
-<?php endif; ?>
-
-<?php if ($align == "top") : ?>
-	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
-<?php endif; ?>
-
-<?php if ($align == "left" || $align == "right") : ?>
-<div class="uk-align-medium-<?php echo $align; ?>">
-	<?php echo $this->renderPosition('media'); ?>
+	</div>
 </div>
-<?php endif; ?>
-
-<?php if ($this->checkPosition('content')) : ?>
-	<?php echo $this->renderPosition('content'); ?>
-<?php endif; ?>
-
-<?php if ($this->checkPosition('meta')) : ?>
-<p class="uk-article-meta">
-    <?php echo $this->renderPosition('meta'); ?>
-</p>
-<?php endif; ?>
-
-<?php if ($align == "bottom") : ?>
-	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
-<?php endif; ?>
-
-<?php if ($this->checkPosition('links')) : ?>
-<ul class="uk-subnav uk-subnav-line">
-	<?php echo $this->renderPosition('links', array('style' => 'uikit_subnav')); ?>
-</ul>
-<?php endif;

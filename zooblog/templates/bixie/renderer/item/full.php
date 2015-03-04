@@ -40,9 +40,9 @@ $align = ($this->checkPosition('media')) ? $view->params->get('template.item_med
 <?php endif; ?>
 
 <?php if ($this->checkPosition('meta')) : ?>
-	<p class="uk-text-bold">
+	<div class="uk-text-bold">
 		<?php echo $this->renderPosition('meta'); ?>
-	</p>
+	</div>
 <?php endif; ?>
 
 <?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
