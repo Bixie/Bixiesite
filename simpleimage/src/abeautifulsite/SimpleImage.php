@@ -1,11 +1,11 @@
 <?php
 /**
  * @package		SimpleImage class
- * @version		2.5.3
- * @author		Cory LaViska for A Beautiful Site, LLC. (http://www.abeautifulsite.net/)
+ * @version     2.5.4
+ * @author      Cory LaViska for A Beautiful Site, LLC (http://www.abeautifulsite.net/)
  * @author		Nazar Mokrynskyi <nazar@mokrynskyi.com> - merging of forks, namespace support, PhpDoc editing, adaptive_resize() method, other fixes
  * @license		This software is licensed under the MIT license: http://opensource.org/licenses/MIT
- * @copyright	A Beautiful Site, LLC.
+ * @copyright   A Beautiful Site, LLC
  *
  */
 
@@ -56,7 +56,7 @@ class SimpleImage {
 	 *
 	 */
 	function __destruct() {
-		if ($this->image) {
+        if( get_resource_type($this->image) === 'gd' ) {
 			imagedestroy($this->image);
 		}
 	}
@@ -792,7 +792,8 @@ class SimpleImage {
 		if( $this->original_info['format'] === 'gif' ) {
 			// Preserve transparency in GIFs
 			$transparent_index = imagecolortransparent($this->image);
-			if ($transparent_index >= 0) {
+            $palletsize = imagecolorstotal($this->image);
+            if ($transparent_index >= 0 && $transparent_index < $palletsize) {
 	            $transparent_color = imagecolorsforindex($this->image, $transparent_index);
 	            $transparent_index = imagecolorallocate($new, $transparent_color['red'], $transparent_color['green'], $transparent_color['blue']);
 	            imagefill($new, 0, 0, $transparent_index);
@@ -851,18 +852,21 @@ class SimpleImage {
 	 *
 	 * @param null|string	$filename	If omitted - original file will be overwritten
 	 * @param null|int		$quality	Output image quality in percents 0-100
+     * @param null|string   $format     The format to use; determined by file extension if null
 	 *
 	 * @return SimpleImage
 	 * @throws Exception
 	 *
 	 */
-	function save($filename = null, $quality = null) {
+    function save($filename = null, $quality = null, $format = null) {
 		
 		// Determine quality, filename, and format
 		$quality = $quality ?: $this->quality;
 		$filename = $filename ?: $this->filename;
+        if( !$format ) {
 		$format = $this->file_ext($filename) ?: $this->original_info['format'];
-		
+        }
+
 		// Create the image
 		switch (strtolower($format)) {
 			case 'gif':
@@ -998,6 +1002,8 @@ class SimpleImage {
 		}
 		
 		// Add the text
+        imagesavealpha($this->image, true);
+        imagealphablending($this->image, true);
 		imagettftext($this->image, $font_size, $angle, $x, $y, $color, $font_file, $text);
 	
 		return $this;
