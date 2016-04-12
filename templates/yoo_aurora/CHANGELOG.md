@@ -1,5 +1,8 @@
 # Changelog
 
+    1.0.5
+    ^ Updated UIkit theme according to UIkit 2.20.0
+
     1.0.4
     ^ Updated UIkit theme according to UIkit 2.17.0
 

@@ -8,45 +8,44 @@
 
 return array(
 
+    'name' => 'widget/grid_aurora',
+
     'main' => 'YOOtheme\\Widgetkit\\Widget\\Widget',
 
-    'config' => function($app) {
+    'config' => array(
 
-        return array(
+        'name'  => 'grid_aurora',
+        'label' => 'Grid Aurora',
+        'icon'  => 'plugins/widgets/grid_aurora/widget.svg',
+        'view'  => 'plugins/widgets/grid_aurora/views/widget.php',
+        'item'  => array('title', 'content', 'media'),
+        'settings' => array(
+            'columns' => '1',
+            'columns_small' => 0,
+            'columns_medium' => 0,
+            'columns_large' => 0,
+            'columns_xlarge' => 0,
+            'gutter' => 'default',
+            'panel' => 'blank',
+            'animation' => 'none',
+            'text_align' => 'left',
+            'title_size' => 'panel',
+            'media_align' => 'teaser',
+            'media_width' => '1-2',
+            'media_breakpoint' => 'medium',
+            'content_align' => true,
+            'media_border' => 'none',
+            'link_style' => 'button',
+            'title' => true,
+            'media' => true,
+            'content' => true,
+            'link' => true,
+            'button_link' => true,
+            'link_text' => 'Read more',
+            'class' => ''
+        )
 
-            'name'  => 'grid_aurora',
-            'label' => 'Grid +',
-            'icon'  => $app['url']->to('plugins/widgets/grid_aurora/widget.svg'),
-            'view'  => 'plugins/widgets/grid_aurora/views/widget.php',
-            'item'  => array('title', 'content', 'media'),
-            'settings' => array(
-                'columns' => '1',
-                'columns_small' => 0,
-                'columns_medium' => 0,
-                'columns_large' => 0,
-                'columns_xlarge' => 0,
-                'gutter' => 'default',
-                'panel' => 'blank',
-                'animation' => 'none',
-                'text_align' => 'left',
-                'title_size' => 'panel',
-                'media_align' => 'teaser',
-                'media_width' => '1-2',
-                'media_breakpoint' => 'medium',
-                'content_align' => true,
-                'media_border' => 'none',
-                'link_style' => 'button',
-                'title' => true,
-                'media' => true,
-                'content' => true,
-                'link' => true,
-                'button_link' => true,
-                'link_text' => 'Read more',
-                'class' => ''
-            )
-
-        );
-    },
+    ),
 
     'events' => array(
 

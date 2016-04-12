@@ -910,6 +910,13 @@
             ]
         },
         {
+            "label": "Block",
+            "advanced": true,
+            "vars": [
+                "@block-*"
+            ]
+        },
+        {
             "label": "Breadcrumb",
             "advanced": true,
             "vars": [
@@ -935,6 +942,14 @@
             "advanced": true,
             "vars": [
                 "@comment-*"
+            ]
+        },
+        {
+            "label": "Contrast",
+            "advanced": true,
+            "vars": [
+                "@contrast-color",
+                "@contrast-inverted-color"
             ]
         },
         {
@@ -1096,6 +1111,13 @@
               "advanced": true,
               "vars": [
                   "@slidenav-*"
+              ]
+          },
+          {
+              "label": "Slider",
+              "advanced": true,
+              "vars": [
+                  "@slider-*"
               ]
           },
           {
